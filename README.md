@@ -1,9 +1,9 @@
-#### islamiapp
+# Islami App
 
 
 The "ISLAMI" application is a comprehensive Islamic app designed to cater to the daily needs of Muslims by providing various tools and Islamic resources in one place. The app can enhance users' spiritual and religious lives and features many important and useful functions.
 
-## Highlight Features: 
+### Highlight Features: 
  
 -	Quran Kareem
 -	Hadith Collection
