@@ -1,4 +1,4 @@
-# Islami App
+![iPhone 15 Mockup, Perspective](https://github.com/user-attachments/assets/e67ef16c-b72a-4fbe-ac43-d3d40ee3476e)# Islami App
 
 
 The "ISLAMI" application is a comprehensive Islamic app designed to cater to the daily needs of Muslims by providing various tools and Islamic resources in one place. The app can enhance users' spiritual and religious lives and features many important and useful functions.
@@ -14,3 +14,5 @@ The "ISLAMI" application is a comprehensive Islamic app designed to cater to the
  
 
 The "ISLAMI" app is characterized by its professional design and user-friendly interface, making it an ideal tool for Muslims seeking a comprehensive application that meets their daily religious and spiritual needs.
+
+![image alt](Uploading iPhone 15 Mockup, Perspective.png…)
