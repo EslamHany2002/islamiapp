@@ -5,12 +5,12 @@ The "ISLAMI" application is a comprehensive Islamic app designed to cater to the
 
 ### Highlight Features: 
  
--	Quran Kareem
--	Hadith Collection
--	Electronic Misbaha.
--	Quran Radio
--	Prayer Times
--	Azkar 
+-	Quran Kareem 🕋🌙
+-	Hadith Collection 📖
+-	Electronic Misbaha 📿
+-	Quran Radio 📻
+-	Prayer Times 🧎🏻‍♂️
+-	Azkar 🤲
  
 
 The "ISLAMI" app is characterized by its professional design and user-friendly interface, making it an ideal tool for Muslims seeking a comprehensive application that meets their daily religious and spiritual needs.
