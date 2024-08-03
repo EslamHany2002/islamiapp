@@ -22,36 +22,25 @@ class _HomeState extends State<Home> {
   late List<Widget> tabItems;
   List<Map<String, String>> favoriteRadios = [];
 
-  Future<void> _addFavorite(String name, String url, bool isFavorite) async {
-    if (mounted) {
-      setState(() {
-        if (isFavorite) {
-          favoriteRadios.add({'name': name, 'url': url});
-        } else {
-          favoriteRadios.removeWhere((radio) => radio['name'] == name);
-        }
-      });
-    }
-  }
 
   Future<void> loadJsonAsset() async {
     final String jsonString =
-    await rootBundle.loadString("assets/json/surahs.json");
+        await rootBundle.loadString("assets/json/surahs.json");
     var data = jsonDecode(jsonString);
     setState(() {
       widgetjsonData = data;
       tabItems = [
         Quran(suraJsonData: widgetjsonData),
-        Hadith(),
-        Sabhuh(),
+        const Hadith(),
+        const Sabhuh(),
         FavoriteProvider(
           favoriteRadios: [],
           onFavoriteChanged: (String name, String url, bool isFavorite) async {
             // Implement the action when a favorite changes, if needed
           },
-          child: Radio2(),
+          child: const Radio2(),
         ),
-        Time(),
+        const Time(),
       ];
     });
   }
@@ -62,25 +51,20 @@ class _HomeState extends State<Home> {
     loadJsonAsset();
   }
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: widgetjsonData == null
-            ? CircularProgressIndicator()
+            ? const CircularProgressIndicator()
             : tabItems[_selectedIndex],
       ),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _selectedIndex,
-        animationDuration: Duration(milliseconds: 1000),
+        animationDuration: const Duration(milliseconds: 1000),
         labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
-        indicatorColor: Color(0x86212121),
+        indicatorColor: const Color(0x86212121),
         backgroundColor: MyTheme.gold,
         onDestinationSelected: (int index) {
           setState(() {

@@ -33,14 +33,14 @@ class _QuranPageState extends State<QuranPage> {
         backgroundColor: MyTheme.background,
         titleSpacing: size.width * 0.24,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: MyTheme.gold),
+          icon: const Icon(Icons.arrow_back, color: MyTheme.gold),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
         title: Text(
           widget.suraNameEnglish,
-          style: TextStyle(color: MyTheme.gold, fontFamily: "janna"),
+          style: const TextStyle(color: MyTheme.gold, fontFamily: "janna"),
         ),
       ),
       body: Stack(
@@ -63,11 +63,12 @@ class _QuranPageState extends State<QuranPage> {
           ),
           Positioned(
             top: 50,
-            left: size.width * 0.42,
+            left: 0,
+            right: 0,
             child: Center(
               child: Text(
                 widget.suraNameArabic,
-                style: TextStyle(
+                style: const TextStyle(
                   color: MyTheme.gold,
                   fontFamily: "janna",
                   fontSize: 24,
@@ -91,7 +92,7 @@ class _QuranPageState extends State<QuranPage> {
               future: _fileManager.loadFile(widget.fileName),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(child: CircularProgressIndicator());
+                  return const Center(child: CircularProgressIndicator());
                 } else if (snapshot.hasError) {
                   return Center(child: Text('Error: ${snapshot.error}'));
                 } else {
@@ -104,7 +105,7 @@ class _QuranPageState extends State<QuranPage> {
                         return Padding(
                           padding: const EdgeInsets.only(top: 15.0, left: 18, right: 18),
                           child: Container(
-                            padding: EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(8.0),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(12),
                               border: Border.all(color: MyTheme.gold),
@@ -113,7 +114,7 @@ class _QuranPageState extends State<QuranPage> {
                               child: Text(
                                 '[${index + 1}] ${lines[index]}',
                                 textAlign: TextAlign.center,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: MyTheme.gold,
                                   fontFamily: "janna",
                                   fontSize: 19,

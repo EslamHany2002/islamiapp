@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:islamiapp/Core/Theme/MyTheme.dart';
 import 'package:islamiapp/Presentation/UI/Home/Taps/Quran/Quran_page/Quran_page.dart';
-import 'package:islamiapp/file_page.dart';
 import 'package:islamiapp/models/sura.dart';
 import 'package:quran/quran.dart';
 
@@ -68,12 +67,12 @@ class _QuranState extends State<Quran> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 8.0),
+            padding: const EdgeInsets.only(top: 8.0,left: 8.0,right: 8.0),
             child: Column(
               children: [
                 SizedBox(height: MediaQuery.of(context).size.height * 0.25), // adjust top spacing
                 TextFormField(
-                  style: TextStyle(color: Color(0xffFEFFE8)),
+                  style: const TextStyle(color: Color(0xffFEFFE8)),
                   onChanged: (value) {
                     setState(() {
                       searchQuery = value;
@@ -149,12 +148,12 @@ class _QuranState extends State<Quran> {
                 SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                 Expanded(
                   child: isLoading
-                      ? Center(
+                      ? const Center(
                     child: CircularProgressIndicator(),
                   )
                       : ListView.separated(
                     padding: EdgeInsets.zero, // Remove extra padding if any
-                    separatorBuilder: (context, index) => Padding(
+                    separatorBuilder: (context, index) => const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 50.0),
                       child: Divider(
                         color: Colors.white,
@@ -174,75 +173,73 @@ class _QuranState extends State<Quran> {
                       int ayahCount = getVerseCount(suraNumber);
 
                       return Padding(
-                        padding: EdgeInsets.all(0.0),
-                        child: Container(
-                          child: ListTile(
-                            leading: SizedBox(
-                              width: 45,
-                              height: 45,
-                              child: Stack(
-                                alignment: Alignment.center,
-                                children: [
-                                  Image.asset(
-                                    'assets/PNG/arabic-art-svgrepo-com 1.png',
-                                    width: 250,
-                                  ), // Replace with the path to your image
-                                  Text(
-                                    suraNumberInQuran.toString(),
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.bold, // Ensure the text is bold enough
-                                    ),
+                        padding: const EdgeInsets.all(0.0),
+                        child: ListTile(
+                          leading: SizedBox(
+                            width: 45,
+                            height: 45,
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                Image.asset(
+                                  'assets/PNG/arabic-art-svgrepo-com 1.png',
+                                  width: 250,
+                                ), // Replace with the path to your image
+                                Text(
+                                  suraNumberInQuran.toString(),
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.bold, // Ensure the text is bold enough
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
-                            minVerticalPadding: 0,
-                            title: SizedBox(
-                              width: 90,
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                    child: Text(
-                                      suraName,
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w700),
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                            subtitle: Text(
-                              "$ayahCount Verses",
-                              style: TextStyle(
-                                  fontSize: 14, color: Colors.white),
-                            ),
-                            trailing: Text(
-                              suraNameTranslated,
-                              style: TextStyle(
-                                  fontSize: 20, color: Colors.white),
-                            ),
-                            onTap: () async {
-                              String fileName =
-                                  '${suraNumberInQuran}.txt';
-                              String suraNameArabic = suraNameTranslated;
-                              String suraNameEnglish = suraName;
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) {
-                                  return QuranPage(
-                                    fileName: fileName,
-                                    suraNameArabic: suraNameArabic,
-                                    suraNameEnglish: suraNameEnglish,
-                                  );
-                                }),
-                              );
-                            },
                           ),
+                          minVerticalPadding: 0,
+                          title: SizedBox(
+                            width: 90,
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    suraName,
+                                    style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w700),
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                          subtitle: Text(
+                            "$ayahCount Verses",
+                            style: const TextStyle(
+                                fontSize: 14, color: Colors.white),
+                          ),
+                          trailing: Text(
+                            suraNameTranslated,
+                            style: const TextStyle(
+                                fontSize: 20, color: Colors.white),
+                          ),
+                          onTap: () async {
+                            String fileName =
+                                '${suraNumberInQuran}.txt';
+                            String suraNameArabic = suraNameTranslated;
+                            String suraNameEnglish = suraName;
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return QuranPage(
+                                  fileName: fileName,
+                                  suraNameArabic: suraNameArabic,
+                                  suraNameEnglish: suraNameEnglish,
+                                );
+                              }),
+                            );
+                          },
                         ),
                       );
                     },

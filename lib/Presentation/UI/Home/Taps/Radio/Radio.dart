@@ -80,7 +80,7 @@ class _Radio2State extends State<Radio2> with SingleTickerProviderStateMixin {
             ),
           ),
           Positioned(
-            top: 200,
+            top: 205,
             left: 10,
             right: 10,
             bottom: 0,
@@ -88,7 +88,7 @@ class _Radio2State extends State<Radio2> with SingleTickerProviderStateMixin {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: Color(0xFF202020),
+                    color: const Color(0xFF202020),
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   child: TabBar(

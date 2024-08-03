@@ -654,7 +654,7 @@ class _TimeState extends State<Time> {
                           builder: (context, snapshot) {
                             if (snapshot.connectionState ==
                                 ConnectionState.waiting) {
-                              return Center(
+                              return const Center(
                                 child: CircularProgressIndicator(
                                   color: Colors.white,
                                 ),
@@ -719,7 +719,7 @@ class _TimeState extends State<Time> {
                                             0.28),
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(15),
-                                      gradient: LinearGradient(
+                                      gradient: const LinearGradient(
                                         colors: [
                                           MyTheme.background,
                                           Color(0xffB19768)
@@ -735,7 +735,7 @@ class _TimeState extends State<Time> {
                                         children: [
                                           Text(
                                             prayer['name'],
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 20.0,
                                                 fontWeight: FontWeight.bold,
                                                 color: Colors.white),
@@ -743,7 +743,7 @@ class _TimeState extends State<Time> {
                                           Text(
                                             DateFormat.jm().format(
                                                 prayer['time'] as DateTime),
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 color: Colors.white,
                                                 fontSize: 22),
                                           ),
@@ -755,7 +755,7 @@ class _TimeState extends State<Time> {
                               );
                             }
 
-                            return Center(
+                            return const Center(
                               child: Text(
                                 'Error in retrieving location data',
                                 style: TextStyle(color: Colors.red),
@@ -772,9 +772,9 @@ class _TimeState extends State<Time> {
                           width: MediaQuery.of(context).size.width,
                           alignment: Alignment.center,
                           // color: Colors.red,
-                          child: Text(
+                          child: const Text(
                             "Pray Time",
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                               color: Color(0x51000000),

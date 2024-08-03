@@ -45,6 +45,15 @@ class _RadioListState extends State<RadioList> {
     });
   }
 
+  String _shortenName(String name) {
+    List<String> words = name.split(' ');
+    if (words.length > 4) {
+      return words.sublist(0, 4).join(' ') + '...';
+    } else {
+      return name;
+    }
+  }
+
   void _playPauseRadio(String url) async {
     if (mounted) {
       if (_playerState == PlayerState.playing && _currentUrl == url) {
@@ -86,16 +95,16 @@ class _RadioListState extends State<RadioList> {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return ListView.builder(
-              padding: EdgeInsets.only(top: 3),
+              padding: const EdgeInsets.only(top: 3),
               itemCount: snapshot.data?.radios?.length ?? 0,
               itemBuilder: (context, index) {
                 var radio = snapshot.data?.radios?[index];
-                final name = radio?.name ?? 'Unknown';
+                final name = _shortenName(radio?.name ?? 'Unknown');
                 final url = radio?.url ?? '';
-                final isMuted = muteStatus[name] ?? false;
+                final isMuted = muteStatus[radio?.name ?? ''] ?? false;
 
                 return Container(
-                  margin: EdgeInsets.symmetric(vertical: 10),
+                  margin: const EdgeInsets.symmetric(vertical: 10),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(25),
                     color: MyTheme.gold,
@@ -113,22 +122,24 @@ class _RadioListState extends State<RadioList> {
                             alignment: Alignment.topCenter,
                             child: Text(
                               name,
-                              style: TextStyle(fontSize: 25, fontFamily: "janna"),
+                              style: const TextStyle(fontSize: 25, fontFamily: "janna"),
                             ),
                           ),
                         ),
                       ),
                       Positioned(
                         bottom: 0,
+                        left: 0,
+                        right: 0,
                         child: Image.asset(
                           'assets/PNG/Mosque-02.png',
-                          width: MediaQuery.of(context).size.height * 0.450,
+                          width: MediaQuery.of(context).size.width,
                           color: Colors.black26,
                         ),
                       ),
                       Positioned(
                         child: Padding(
-                          padding: const EdgeInsets.only(top: 37.0),
+                          padding: const EdgeInsets.only(top: 40.0),
                           child: Container(
                             width: MediaQuery.of(context).size.width,
                             alignment: Alignment.center,
@@ -165,7 +176,7 @@ class _RadioListState extends State<RadioList> {
                                 ),
                                 IconButton(
                                   onPressed: () {
-                                    _toggleMute(name);
+                                    _toggleMute(radio?.name ?? '');
                                   },
                                   icon: Icon(
                                     size: 40,
@@ -184,9 +195,9 @@ class _RadioListState extends State<RadioList> {
               },
             );
           } else if (snapshot.hasError) {
-            return Center(child: Text('Failed to load radios'));
+            return const Center(child: Text('Failed to load radios'));
           }
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         },
       ),
     );

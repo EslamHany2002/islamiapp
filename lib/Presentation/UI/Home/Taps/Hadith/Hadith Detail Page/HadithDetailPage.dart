@@ -17,15 +17,15 @@ class HadithDetailPage extends StatelessWidget {
         backgroundColor: MyTheme.background,
         titleSpacing: size.width * 0.24,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: MyTheme.gold),
+          icon: const Icon(Icons.arrow_back, color: MyTheme.gold),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
-        title: Text(
-          hadeth.title,
-          style: TextStyle(color: MyTheme.gold, fontFamily: "janna"),
-        ),
+        // title: Text(
+        //   hadeth.title,
+        //   style: TextStyle(color: MyTheme.gold, fontFamily: "janna"),
+        // ),
       ),
       body: Stack(
         children: [
@@ -54,11 +54,12 @@ class HadithDetailPage extends StatelessWidget {
           ),
           Positioned(
             top: 50,
-            left: size.width * 0.35,
+            left: 0,
+            right: 0,
             child: Center(
               child: Text(
                 hadeth.title,
-                style: TextStyle(
+                style: const TextStyle(
                   color: MyTheme.gold,
                   fontFamily: "janna",
                   fontSize: 24,
@@ -66,29 +67,25 @@ class HadithDetailPage extends StatelessWidget {
               ),
             ),
           ),
-          Center(
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-
-                    SizedBox(height: 20),
-                    Text(
-                      hadeth.content,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontFamily: "janna",
-                        color: MyTheme.gold,
-                      ),
-                    ),
-                  ],
+          Positioned(
+            top: 120,
+            left: 0,
+            right: 0,
+            bottom: 110,
+            child: ListView(children: [
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                child: Text(
+                  hadeth.content,
+                  textAlign: TextAlign.right,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontFamily: "janna",
+                    color: MyTheme.gold,
+                  ),
                 ),
               ),
-            ),
+            ]),
           ),
         ],
       ),

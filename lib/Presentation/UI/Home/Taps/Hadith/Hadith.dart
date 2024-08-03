@@ -60,7 +60,7 @@ class _HadithState extends State<Hadith> {
             left: 16,
             right: 16,
             child: TextFormField(
-              style: TextStyle(color: Color(0xffFEFFE8)),
+              style: const TextStyle(color: Color(0xffFEFFE8)),
               onChanged: (value) {
                 setState(() {
                   filteredHadethList = allHadethList
@@ -128,7 +128,7 @@ class _HadithState extends State<Hadith> {
             right: 0,
             bottom: MediaQuery.of(context).size.height * 0.030,
             child: filteredHadethList.isEmpty
-                ? Center(child: CircularProgressIndicator())
+                ? const Center(child: CircularProgressIndicator())
                 : CarouselSlider.builder(
               options: CarouselOptions(
                 height: MediaQuery.of(context).size.height * 0.55,
@@ -149,7 +149,7 @@ class _HadithState extends State<Hadith> {
                   },
                   child: Container(
                     width: MediaQuery.of(context).size.width,
-                    margin: EdgeInsets.symmetric(horizontal: 11.0),
+                    margin: const EdgeInsets.symmetric(horizontal: 11.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       color: MyTheme.gold,
@@ -199,18 +199,18 @@ class _HadithState extends State<Hadith> {
                               Text(
                                 hadeth.title,
                                 textAlign: TextAlign.center,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontSize: 24,
                                   fontFamily: "janna",
                                   color: MyTheme.background,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                               Text(
                                 truncateText(hadeth.content, 100),
                                 textAlign: TextAlign.center,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontSize: 16,
                                   fontFamily: "janna",
                                   color: MyTheme.background,

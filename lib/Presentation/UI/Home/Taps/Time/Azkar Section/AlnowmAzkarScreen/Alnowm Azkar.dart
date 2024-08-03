@@ -54,7 +54,7 @@ class _AlnowmAzkarScreenState extends State<AlnowmAzkarScreen> {
           backgroundColor: MyTheme.background,
           titleSpacing: size.width * 0.24,
           leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: MyTheme.gold),
+            icon: const Icon(Icons.arrow_back, color: MyTheme.gold),
             onPressed: () {
               Navigator.pop(context);
             },
@@ -86,7 +86,7 @@ class _AlnowmAzkarScreenState extends State<AlnowmAzkarScreen> {
                 width: MediaQuery.of(context).size.width * 1,
               ),
             ),
-            Positioned(
+            const Positioned(
                 top: 65,
                 left: 0,
                 right: 0,
@@ -101,7 +101,7 @@ class _AlnowmAzkarScreenState extends State<AlnowmAzkarScreen> {
                 itemBuilder: (context, index) {
                   final azkar = azkarList[index];
                   return Container(
-                    margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                    margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(color: MyTheme.gold, width: 2), // Golden border
@@ -114,29 +114,29 @@ class _AlnowmAzkarScreenState extends State<AlnowmAzkarScreen> {
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Text(
+                              const Text(
                                 'المرات', // Label
                                 style: TextStyle(color: MyTheme.gold,fontFamily: "janna"),
                               ),
-                              SizedBox(height: 4), // Space between label and number
+                              const SizedBox(height: 4), // Space between label and number
                               Text(
-                                '${azkar.count}', // Number
-                                style: TextStyle(color: MyTheme.gold, fontWeight: FontWeight.bold,fontFamily: "janna"),
+                                azkar.count, // Number
+                                style: const TextStyle(color: MyTheme.gold, fontWeight: FontWeight.bold,fontFamily: "janna"),
                               ),
                             ],
                           ),
                         ),
                         Expanded(
                           child: ListTile(
-                            contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                            contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                             title: Text(
                               azkar.content,
-                              style: TextStyle(color: MyTheme.gold,fontFamily: "janna"),
+                              style: const TextStyle(color: MyTheme.gold,fontFamily: "janna"),
                               textAlign: TextAlign.right, // Align text to the right
                             ),
                             subtitle: Text(
                               azkar.description,
-                              style: TextStyle(color: Colors.white,fontFamily: "janna"),
+                              style: const TextStyle(color: Colors.white,fontFamily: "janna"),
                               textAlign: TextAlign.right, // Align text to the right
                             ),
                             // Remove trailing from here

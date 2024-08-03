@@ -62,9 +62,9 @@ class _RadioFavState extends State<RadioFav> {
   Widget build(BuildContext context) {
     return Container(
       child: widget.favoriteRadios.isEmpty
-          ? Center(child: Text('No favorites found.'))
+          ? const Center(child: Text('No favorites found.'))
           : ListView.builder(
-        padding: EdgeInsets.only(top: 3),
+        padding: const EdgeInsets.only(top: 3),
         itemCount: widget.favoriteRadios.length,
         itemBuilder: (context, index) {
           var radio = widget.favoriteRadios[index];
@@ -73,7 +73,7 @@ class _RadioFavState extends State<RadioFav> {
           final isMuted = muteStatus[name] ?? false;
 
           return Container(
-            margin: EdgeInsets.symmetric(vertical: 10),
+            margin: const EdgeInsets.symmetric(vertical: 10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(25),
               color: MyTheme.gold,
@@ -91,22 +91,24 @@ class _RadioFavState extends State<RadioFav> {
                       alignment: Alignment.topCenter,
                       child: Text(
                         name,
-                        style: TextStyle(fontSize: 25, fontFamily: "janna"),
+                        style: const TextStyle(fontSize: 25, fontFamily: "janna"),
                       ),
                     ),
                   ),
                 ),
                 Positioned(
                   bottom: 0,
+                  left: 0,
+                  right: 0,
                   child: Image.asset(
                     'assets/PNG/Mosque-02.png',
-                    width: MediaQuery.of(context).size.height * 0.450,
+                    width: MediaQuery.of(context).size.width,
                     color: Colors.black26,
                   ),
                 ),
                 Positioned(
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 37.0),
+                    padding: const EdgeInsets.only(top: 40.0),
                     child: Container(
                       width: MediaQuery.of(context).size.width,
                       alignment: Alignment.center,
@@ -117,7 +119,7 @@ class _RadioFavState extends State<RadioFav> {
                             onPressed: () {
                               widget.onFavoriteChanged(name, url, false);
                             },
-                            icon: Icon(
+                            icon: const Icon(
                               size: 40,
                               Icons.favorite,
                               color: MyTheme.background,
