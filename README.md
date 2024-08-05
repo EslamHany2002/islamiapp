@@ -17,3 +17,4 @@ The "ISLAMI" app is characterized by its professional design and user-friendly i
 
 ## some output
 ![iPhone 15 Mockup, Perspective](https://github.com/user-attachments/assets/e67ef16c-b72a-4fbe-ac43-d3d40ee3476e)
+![Mobile App Screen Mockup, Mosaic](https://github.com/user-attachments/assets/e15f4c94-9da8-4908-a088-49fb3475a79d)
