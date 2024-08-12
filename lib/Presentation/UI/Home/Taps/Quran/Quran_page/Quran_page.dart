@@ -31,17 +31,19 @@ class _QuranPageState extends State<QuranPage> {
       backgroundColor: MyTheme.background,
       appBar: AppBar(
         backgroundColor: MyTheme.background,
-        titleSpacing: size.width * 0.24,
+        // titleSpacing: size.width * 0.24,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: MyTheme.gold),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
-        title: Text(
-          widget.suraNameEnglish,
-          style: const TextStyle(color: MyTheme.gold, fontFamily: "janna"),
-        ),
+        // title: Center(
+        //   child: Text(
+        //     widget.suraNameEnglish,
+        //     style: const TextStyle(color: MyTheme.gold, fontFamily: "janna"),
+        //   ),
+        // ),
       ),
       body: Stack(
         children: [

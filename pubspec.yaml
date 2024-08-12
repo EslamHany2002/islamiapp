@@ -59,9 +59,9 @@ dependencies:
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/Icon/Untitled design.png"
+  image_path: "assets/Icon/Islami.png"
   adaptive_icon_background: "#ffffff"
-  adaptive_icon_foreground: "assets/Icon/1024.png"
+  adaptive_icon_foreground: "assets/Icon/Islami.png"
 
 dev_dependencies:
   flutter_test:

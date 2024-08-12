@@ -48,13 +48,18 @@ class _SabhuhState extends State<Sabhuh> {
           ),
           Positioned(
             top: MediaQuery.of(context).size.height * 0.255, // adjusted value
-            left: MediaQuery.of(context).size.width * 0.15, // adjusted value
-            child: Text(
-              "سَبِّحِ اسْمَ رَبِّكَ الأعلى",
-              style: TextStyle(
-                color: Colors.white,
-                fontFamily: "janna",
-                fontSize: MediaQuery.of(context).size.width * 0.08,
+
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              alignment: Alignment.center,
+              // color: Colors.red,
+              child: Text(
+                "سَبِّحِ اسْمَ رَبِّكَ الأعلى",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: "janna",
+                  fontSize: MediaQuery.of(context).size.width * 0.08,
+                ),
               ),
             ),
           ),
@@ -97,10 +102,11 @@ class _SabhuhState extends State<Sabhuh> {
                   ),
                   Positioned(
                     bottom: MediaQuery.of(context).size.height * 0.2, // adjusted value
-                    left: MediaQuery.of(context).size.width * 0.3, // adjusted value
+                    // left: MediaQuery.of(context).size.width * 0.3, // adjusted value
                     child: Container(
                       alignment: Alignment.center,
-                      width: MediaQuery.of(context).size.width * 0.40,
+                      width: MediaQuery.of(context).size.width ,
+                      // color: Colors.red,
                       child: Text(
                         azkar[currentIndex],
                         style: TextStyle(
@@ -113,11 +119,11 @@ class _SabhuhState extends State<Sabhuh> {
                   ),
                   Positioned(
                     bottom: MediaQuery.of(context).size.height * 0.15, // adjusted value
-                    left: MediaQuery.of(context).size.width * 0.3, // adjusted value
+                    // left: MediaQuery.of(context).size.width * 0.3, // adjusted value
                     child: Container(
                       alignment: Alignment.center,
                       // color: Colors.red,
-                      width: MediaQuery.of(context).size.width * 0.40,
+                      width: MediaQuery.of(context).size.width ,
                       child: Text(
                         counter.toString(),
                         style: TextStyle(

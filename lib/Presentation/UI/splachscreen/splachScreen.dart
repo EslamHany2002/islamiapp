@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:islamiapp/Presentation/UI/Home/HomePage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:islamiapp/Presentation/UI/Intro/intro.dart';
+ // Assuming you have a Home screen
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,8 +18,20 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
   void initState() {
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
+    _navigateToNextScreen();
+  }
+
+  Future<void> _navigateToNextScreen() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool isFirstTime = prefs.getBool('isFirstTime') ?? true;
+
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => const Intro()));
+      if (isFirstTime) {
+        prefs.setBool('isFirstTime', false);
+        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => const Intro()));
+      } else {
+        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) =>  Home()));
+      }
     });
   }
 
@@ -50,7 +65,6 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
           ),
         ),
         Positioned(
-          // top: screenHeight * 0.00,
           right: screenWidth * 0.05,
           child: Image.asset(
             'assets/PNG/Glow.png',
@@ -88,12 +102,6 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
             width: screenWidth * 0.38,
           ),
         ),
-
-        // Positioned(
-        //   bottom: screenHeight * 0.04,
-        //   left: screenWidth * 0.29,
-        //   child: const Text("Developed by Eslam Hany",style: TextStyle(fontSize: 15,fontFamily: "janna",color: MyTheme.gold),),
-        // ),
       ],
     );
   }
